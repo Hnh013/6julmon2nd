@@ -1,0 +1,56 @@
+{% extends 'templating.html' %}
+{% load static %}
+	{% block metatag %}
+	<title>Astro Website</title>		
+	{% endblock %}
+	{% block content %}	
+<br><br><br><br>
+<hr><hr>
+<h2>Sign up here plesse</h2>
+  <form method="post">
+      {% csrf_token %}
+      <div class="jumbotron">
+      <div class="row">
+          <div class="col-8">
+              <div class="row">
+                <div class="col-6">
+                    First Name{{ form1.first_name}}
+                </div>
+                <div class="col-6">
+                    Lastt Name{{ form1.last_name}}
+                </div>
+             </div>
+             
+             <div class="row">
+                <div class="col-6">
+                    Username {{ form1.username}}
+                </div>
+                <div class="col-6">
+                    Email {{ form1.email }}
+                </div>
+             </div>
+             <div class="row">
+                 <div class="col-6">
+                    Password {{ form1.password1}}
+                 </div>
+                 <div class="col-6">
+                    Confirm Password {{ form1.password2 }}
+                 </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-6">
+                    
+                </div>
+             </div>
+             <p align="center">
+               <button type="submit" class='btn btn-success'>Sign up</button>
+               </p>
+          </div>
+          <div class='col-4'>qerefeeeeeeeeeeeeee<br>qerefeeeeeeeeeeeeee<br>qerefeeeeeeeeeeeeee<br>qerefeeeeeeeeeeeeee<br></div>
+          </div>
+      </div>
+  </form>
+
+
+	{% endblock %}

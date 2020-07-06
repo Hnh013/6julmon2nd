@@ -1,0 +1,28 @@
+
+{% extends 'templating.html' %}
+{% load static %}
+	{% block metatag %}
+	<title>Astro Website</title>		
+	{% endblock %}
+	{% block content %}	
+
+<hr><hr><hr><hr>
+<hr><hr><hr><hr>
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+
+
+<form action="" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	Upload Picture : {{ form.profile_pic }}<br>
+	
+	<hr><br>
+
+
+      <button type="submit">Submit</button>
+</form>
+
+</div></div></div>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'templating.html' %}
+{% load static %}
+	{% block metatag %}
+	<title>Astro Website</title>		
+	{% endblock %}
+	{% block content %}	
+
+
+	{% if user.is_authenticated %}
+{% if user.profile.user_role == 'Customer' or user.profile.user_role == 'Astrologer' %}
+
+<hr><hr><hr><hr> <hr><hr><hr><hr>
+<h1 align="center"><small> Welcome {{user.first_name}} {{ user.last_name }}</small></h1>
+
+<div class="jumbotron">
+<div class="container">
+<div class="row">
+        
+            
+            <div class="col-sm-4" style="background-color:#fff; text-align: center">
+            	 <p>  <p></p>
+
+          
+                <p> <img src="{{user.profile.profile_pic.url}}" height="200" width="200">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#UploadNewPictureModal">Upload new Picture</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#RemovePictureModal">REmove Picture</button>
+                    </div>
+              </p>
+            </div> 
+            <div class="col-sm-8" style="background-color:#fff; text-align: center">
+              <h1>Keep Booking</h1><h1>Your wallet balance is : INR {{ user.wallet.balance }}</h1>
+                <a href="{% url 'recharge' %}" class="btn btn-primary btn-sm" >Recharge Wallet</a>
+                        
+                  
+            </div>
+
+</div>         
+</div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+    <div class="row">
+        
+            <div class="col-sm-4" style="background-color:#fff; text-align: center">
+               
+            </div>
+
+            <div class="col-sm-4" style="background-color:#fff; text-align: center">
+                <table class="table table-striped">
+                    
+                    <tr><td><strong>First Name       </strong></td><td>{{ user.first_name }}</td></tr>
+                    <tr><td><strong>Last Name        </strong></td><td>{{ user.last_name }}</td></tr>
+                    <tr><td><strong>Email      </strong></td><td>{{ user.email }}</td></tr>
+                    </table>
+                       <p align="center"> <a class="btn btn-primary" href="{% url 'updateprofile' %}">Update Profile</a></p>
+            </div>
+
+            <div class="col-sm-4" style="background-color:#fff; text-align: center">
+                
+                
+     
+            </div>
+    </div>
+    </div>
+</div>
+{% if user.profile.user_role == 'Astrologer' %}
+  
+<div class="jumbotron">
+    <div class="container">
+    <div class="row">
+        
+            <div class="col-sm-4" style="background-color:#fff; text-align: center">
+               <h2>Skills</h2> 
+			   <table class="table table-sm">
+			   {% for i in user.profile.astro_profile.skill %}
+			   <tr><td>{{ i }}</td></tr>
+			   {% endfor %}
+			   </table>
+			</div>
+			<div class="col-sm-4" style="background-color:#fff; text-align: center">
+          	   <h2>About</h2>
+          	   {{ user.profile.astro_profile.about }}
+
+          	   </div>
+			 <div class="col-sm-4" style="background-color:#fff; text-align: center">
+          		<h2>languages</h2>			<table class="table table-sm">
+									{% for i in user.profile.astro_profile.language %}
+									<tr><td>{{ i }}</td></tr>
+									{% endfor %}
+								</table>
+
+									
+			</div>
+	</div>
+	</div>
+
+</div>		
+
+<p align="center"><a class="btn btn-primary" href="{% url 'createastroprofile' %}">Update Your Astrloger Profile</a></p>
+<p align="center"><a class="btn btn-warning" href="{% url 'updateastroprofile' %}">Edit Your Astrloger Profile</a></p>
+
+{% endif %}
+{% else %}
+<hr><hr><hr><hr><hr><hr><hr>
+<div class="jumbotron">
+Hey {{ user.username }} Complete Your Profile <a href="{% url 'completeprofile' %}"><u>here</u></a>
+</div>			
+{% endif %}
+				
+    {% else %}
+    <h1>LOGIN FIRST!!</h1>
+    {% endif %}
+
+	{% endblock %}

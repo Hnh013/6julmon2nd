@@ -1,0 +1,606 @@
+{% extends 'templating.html' %}
+{% load static %}
+	{% block metatag %}
+	<title>Astro Website</title>		
+	{% endblock %}
+	{% block content %}	
+	<section class="cta center-bg " style="background: url({% static 'img/main_background.jpg' %})no-repeat">
+		<div class="finding-overlay op-70"></div>
+		<div class="container pt-80">
+			<div class="row justify-content-center">
+				<div class="col-lg-8 col-md-10">
+					<div class="cta-sec text-center">
+						<h1>When will I find the right partner?</h1>
+						<p>No payment required, jump to get started.</p>
+						<a href="" class="btn btn-cta">Talk to Astrologers</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="container pt-80">	
+		<form>
+			<fieldset class="home-form-1">
+				<div class="row no-gutters justify-content-center seo-contact">							
+					<div class="col-lg-4 col-md-5">
+						<div class="form-group">
+							 
+								<h3>When will I find the right partner?</h3>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-4">
+						<input type="text" class="form-control b-r" placeholder="Ph. Code">
+					</div>
+					<div class="col-lg-3 col-md-4">
+						<div class="form-group">
+							<input type="number" class="form-control b-r" placeholder="Mobile No">
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-3">
+						<button type="submit" class="btn theme-btn seub-btn b-0" align="center">Sign Up</button>
+						<p>Already have an account <a href="#">Login</a></p>
+						
+					</div>				
+				</div>									
+			</fieldset>
+		</form>
+	</div>
+	
+
+
+	<div class="row justify-content-center">
+		<div class="col-lg-10 col-md-12">
+			<ul class="banner-cat-list">
+				<li><a data-toggle="tooltip" data-original-title="Author Name" href="author-detail.html"><img src="{% static 'img/team-2.png' %}" alt="" width="50px;"><span>Business</span></a></li>
+				<li><a href="#"><i class="ti-briefcase"></i><span>Business</span></a></li>
+				<li><a href="#"><i class="ti-support"></i><span>Medical</span></a></li>
+				<li><a href="#"><i class="ti-files"></i><span>Documentry</span></a></li>
+			</ul>
+		</div>
+	</div>
+			
+
+
+
+			<section class="lst">
+				<div class="container">
+					<div class="owl-carousel" id="list-slide">
+						{% for astro in astrologer %}
+						<!-- Single listing -->
+						<div class="list-grid-layout classical-layout">
+							<div class="grid-layout-header">
+								<a href="listing-detail.html" class="list-thumb">
+									<img src="{{ astro.profile.profile_pic.url }}" class="img-fluid mx-auto" alt="">
+								</a>
+								<div class="gl-top-head">
+									<div class="pr-rate gl-card">$$$</div>
+									<div class="gl-rating gl-card">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+								<div class="grid-layout-info">
+									<ul>
+										<li><i class="ti-headphone"></i> {{ astro.experience }} years experience </li>
+										<li><i class="ti-location-pin"></i>{{ astro.location }}</li>
+									</ul>
+								</div>
+							</div>
+							<div class="grid-layout-body">
+								<div class="gl-list-author">
+									<a data-toggle="tooltip" data-original-title="Author Name" href="author-detail.html"><img src="assets/img/team-1.png" alt=""></a>
+									<span class="verified-badge"><i class="fa fa-check"></i></span>
+								</div>
+								<div class="gl-list-caption">
+									<h4><a href="listing-detail.html" class="list-title">{{ astro.profile.user.first_name }} {{ astro.profile.user.last_name }}</a></h4>
+									<p class="gl-tagline">{{ astro.skill }}</p>
+								</div>
+							</div>
+							<div class="grid-layout-footer">
+								<a href="http://themezhub.com/">
+									<div class="cat-icon-box rounded-circle cbg-1">
+										<i class="fa fa-home"></i>
+									</div>
+									<div class="icon-box-text">{{ astro.language }}</div>
+								</a>
+								<div class="ft-loke">
+									<a href="#"><i class="ti-heart"></i></a>
+									<span class="list-status">CONSULT NOW</span>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+						
+						
+						<!-- Single listing -->
+						<div class="list-grid-layout classical-layout">
+							<div class="grid-layout-header">
+								<a href="listing-detail.html" class="list-thumb">
+									<img src="assets/img/7.jpg" class="img-fluid mx-auto" alt="">
+								</a>
+								<div class="gl-top-head">
+									<div class="pr-rate gl-card">INR 5/min</div>
+									<div class="gl-rating gl-card">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+								<div class="grid-layout-info">
+									<ul>
+										<li><i class="ti-headphone"></i> 402-520-8170</li>
+										<li><i class="ti-location-pin"></i>2595 Commerce Boulevard</li>
+									</ul>
+								</div>
+							</div>
+							<div class="grid-layout-body">
+								<div class="gl-list-author">
+									<a data-toggle="tooltip" data-original-title="Author Name" href="author-detail.html"><img src="assets/img/team-5.png" alt=""></a>
+									<span class="verified-badge"><i class="fa fa-check"></i></span>
+								</div>
+								<div class="gl-list-caption">
+									<h4><a href="listing-detail.html" class="list-title">Hula Poke Food</a></h4>
+									<p class="gl-tagline">Innovative cooking, paired with fine wines</p>
+								</div>
+							</div>
+							<div class="grid-layout-footer">
+								<a href="http://themezhub.com/">
+									<div class="cat-icon-box rounded-circle cbg-1">
+										<i class="fa fa-home"></i>
+									</div>
+									<div class="icon-box-text">Restaurants</div>
+								</a>
+								<div class="ft-loke">
+									<a href="#"><i class="ti-heart"></i></a>
+									<span class="list-status">CONSULT NOW</span>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</section>
+			<!-- =========================== Listing End ============================================ -->
+			
+			<!-- =========================== Most Visited Places Start ============================================ -->
+			<section class="gray">
+				<div class="container">
+					
+					<div class="row">
+						<div class="col text-center">
+							<div class="sec-heading mx-auto">
+								<h2>Most Visited Places</h2>
+								<p>Explore curated lists of top restaurants, cafes & shopping around the world by categories.</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						
+						<div class="col-lg-8 col-md-8 col-sm-6">
+							<div class="city-list-box">
+								<a href="search-listing.html" class="city-list" data-background-image="assets/img/city/Texas.jpg">
+									<div class="list-overlay"></div>
+									<div class="category-box-content">
+										<div class="city-names">Texas</div>
+										<span>70 listings</span>
+									</div>
+									<div class="category-box-bg" style="background-image: url(assets/img/city/Texas.jpg);"></div>
+								</a>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<div class="city-list-box">
+								<a href="search-listing.html" class="city-list" data-background-image="assets/img/city/Florida.jpg">
+									<div class="list-overlay"></div>
+									<div class="category-box-content">
+										<div class="city-names">Florida</div>
+										<span>112 listings</span>
+									</div>
+									<div class="category-box-bg" style="background-image: url(assets/img/city/Florida.jpg);"></div>
+								</a>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<div class="city-list-box">
+								<a href="search-listing.html" class="city-list" data-background-image="assets/img/city/Hawaii.jpg">
+									<div class="list-overlay"></div>
+									<div class="category-box-content">
+										<div class="city-names">Hawaii</div>
+										<span>12 listings</span>
+									</div>
+									<div class="category-box-bg" style="background-image: url(assets/img/city/Hawaii.jpg);"></div>
+								</a>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<div class="city-list-box">
+								<a href="search-listing.html" class="city-list" data-background-image="assets/img/city/Illinois.jpg">
+									<div class="list-overlay"></div>
+									<div class="category-box-content">
+										<div class="city-names">Illinois</div>
+										<span>210 listings</span>
+									</div>
+									<div class="category-box-bg" style="background-image: url(assets/img/city/Illinois.jpg);"></div>
+								</a>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<div class="city-list-box">
+								<a href="search-listing.html" class="city-list" data-background-image="assets/img/city/Nevada.jpg">
+									<div class="list-overlay"></div>
+									<div class="category-box-content">
+										<div class="city-names">Nevada</div>
+										<span>98 listings</span>
+									</div>
+									<div class="category-box-bg" style="background-image: url(assets/img/city/Nevada.jpg);"></div>
+								</a>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+			</section>
+			<!-- =========================== Most Visited Places End ======================================== -->
+			
+			<!-- =========================== Events Start ============================================ -->
+			<section class="lst">
+				<div class="container">
+					
+					<div class="row">
+						<div class="col text-center">
+							<div class="sec-heading mx-auto">
+								<h2>Upcoming Events</h2>
+								<p>Discover some of the most popular Events.</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+					
+						<!-- Single Event -->
+						<div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+							<div class="event-grid-wrap">
+								<a href="event-detail.html">
+									<div class="event-grid-header">
+										<img src="assets/img/event-1.jpg" class="img-fluid mx-auto" alt="">
+										<span class="event-grid-cat">Sport & Football</span>
+									</div>
+								</a>
+								<div class="event-grid-caption">
+									<div class="event-grid-caption-header">
+										<h4 class="event-name"><a href="event-detail.html">Amagansett Go Around</a></h4>
+										<div class="event-social-info">
+											<a href="#"><i class="ti-share"></i></a>
+											<a href="#"><i class="ti-bookmark-alt"></i></a>
+										</div>
+									</div>
+									<span class="event-time-limit">9 Feb 10:30Am</span>
+									<p><i class="ti-location-pin"></i>215 Uzil Cansa, Canada</p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Single Event -->
+						<div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+							<div class="event-grid-wrap">
+								<a href="event-detail.html">
+									<div class="event-grid-header">
+										<img src="assets/img/event-2.jpg" class="img-fluid mx-auto" alt="">
+										<span class="event-grid-cat">Part & bar</span>
+									</div>
+								</a>
+								<div class="event-grid-caption">
+									<div class="event-grid-caption-header">
+										<h4 class="event-name"><a href="event-detail.html">Amateur Barber Night</a></h4>
+										<div class="event-social-info">
+											<a href="#"><i class="ti-share"></i></a>
+											<a href="#"><i class="ti-bookmark-alt"></i></a>
+										</div>
+									</div>
+									<span class="event-time-limit">15 Feb 09:30Am</span>
+									<p><i class="ti-location-pin"></i>215 Uzil Cansa, Canada</p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Single Event -->
+						<div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+							<div class="event-grid-wrap">
+								<a href="event-detail.html">
+									<div class="event-grid-header">
+										<img src="assets/img/event-3.jpg" class="img-fluid mx-auto" alt="">
+										<span class="event-grid-cat">Social Network</span>
+									</div>
+								</a>
+								<div class="event-grid-caption">
+									<div class="event-grid-caption-header">
+										<h4 class="event-name"><a href="event-detail.html">Antisocial Darwinism</a></h4>
+										<div class="event-social-info">
+											<a href="#"><i class="ti-share"></i></a>
+											<a href="#"><i class="ti-bookmark-alt"></i></a>
+										</div>
+									</div>
+									<span class="event-time-limit">10 March 10:40Am</span>
+									<p><i class="ti-location-pin"></i>841 Uzil Kilowar, Canada</p>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</section>
+			<!-- =========================== Events End ============================================ -->
+			
+			<!-- =========================== Testimonial Start ============================================ -->
+			<section class="testimonials-3 center-bg" style="background:#ff7600 url(assets/img/icon-bg.png)">
+				<div class="container">
+					
+					<div class="row justify-content-center">
+						<div class="col-lg-10 col-md-10">
+							<div id="testimonial-3" class="slick-carousel-3">
+								<div class="testimonial-detail">
+									<div class="client-detail-box">
+										<div class="pic">
+											<img src="assets/img/team-1.png" alt="">
+										</div>
+										<div class="client-detail">
+											<h3 class="testimonial-title">Adam Alloriam</h3>
+											<span class="post">Web Developer</span>
+										</div>
+									</div>
+									<p class="description">
+										" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi eligendi facilis itaque minus non odio, quaerat ullam eligendi facilis itaque minus non odio, quaerat ullam unde  unde voluptatum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi eligendi. "
+									</p>
+								</div>
+
+								<div class="testimonial-detail">
+									<div class="client-detail-box">
+										<div class="pic">
+											<img src="assets/img/team-2.png" alt="">
+										</div>
+										<div class="client-detail">
+											<h3 class="testimonial-title">Illa Millia</h3>
+											<span class="post">Project Manager</span>
+										</div>
+									</div>
+									<p class="description">
+										" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi eligendi facilis itaque minus non odio, quaerat ullam eligendi facilis itaque minus non odio, quaerat ullam unde  unde voluptatum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi eligendi. "
+									</p>
+								</div>
+								
+								<div class="testimonial-detail">
+									<div class="client-detail-box">
+										<div class="pic">
+											<img src="assets/img/team-3.png" alt="">
+										</div>
+										<div class="client-detail">
+											<h3 class="testimonial-title">Rout Millance</h3>
+											<span class="post">Web Designer</span>
+										</div>
+									</div>
+									<p class="description">
+										" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi eligendi facilis itaque minus non odio, quaerat ullam eligendi facilis itaque minus non odio, quaerat ullam unde  unde voluptatum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi eligendi. "
+									</p>
+								</div>
+								
+								<div class="testimonial-detail">
+									<div class="client-detail-box">
+										<div class="pic">
+											<img src="assets/img/team-4.png" alt="">
+										</div>
+										<div class="client-detail">
+											<h3 class="testimonial-title">williamson</h3>
+											<span class="post">Web Developer</span>
+										</div>
+									</div>
+									<p class="description">
+										" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi eligendi facilis itaque minus non odio, quaerat ullam eligendi facilis itaque minus non odio, quaerat ullam unde  unde voluptatum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi eligendi. "
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</section>	
+			<!-- =========================== Testimonial End ========================================= -->
+			
+			<!-- =========================== Pricing Start ============================================ -->
+			<section>
+				<div class="container">
+				
+					<div class="row">
+						<div class="col text-center">
+							<div class="sec-heading mx-auto">
+								<h2>Select your Package</h2>
+								<p>Choose a package & join as a auhor</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-12 col-lg-12">
+						
+							<div class="d-block">
+								<!-- Nav tabs -->
+								<ul class="nav nav-tabs nav-advance theme-bg" role="tablist">
+									<li class="nav-item">
+										<a class="nav-link active" data-toggle="tab" href="#monthly" role="tab">Monthly</a>
+									</li>
+									<li class="nav-item">
+										<span class="yearly-offer">20% Off</span>
+										<a class="nav-link" data-toggle="tab" href="#yearly" role="tab">Yearly</a>
+									</li>
+								</ul>
+								<!-- Nav tabs -->
+							</div>
+							
+							<!-- Tab panels -->
+							<div class="tab-content">
+							
+								<!-- Monthly Price -->
+								<div class="tab-pane fade in show active" id="monthly" role="tabpanel">
+									<div class="row">
+										<!-- Single price table -->
+										<div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="card pricing">
+												<div class="card-body">
+													<small class="text-muted">PERSONAL</small>
+													<h5 class="card-title">$<span>99</span></h5>
+													<p class="card-text"></p>
+													<ul class="list-unstyled">
+														<li>3 Projects</li>
+														<li class="plan-muted">Team Collaboration</li>
+														<li class="plan-muted">Analytics &amp; Reports</li>
+														<li class="plan-muted">Fully Support</li>
+														<li>One user</li>
+													</ul>
+													<a href="choose-listing.html" class="btn btn-xl btn-outline-primary">Choose This Plan</a>
+												</div>
+											</div>
+										</div>
+										
+										<!-- Single price table -->
+										<div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="card pricing featured">
+												<div class="card-body">
+													<small class="text-muted">STANDARD</small>
+													<h5 class="card-title">$<span>149</span></h5>
+													<p class="card-text"></p>
+													<ul class="list-unstyled">
+														<li>5 Projects</li>
+														<li>Team Collaboration</li>
+														<li class="plan-muted">Analytics &amp; Reports</li>
+														<li class="plan-muted">Fully Support</li>
+														<li>3 Users user</li>
+													</ul>
+													<a href="choose-listing.html" class="btn btn-xl btn-outline-primary">Choose This Plan</a>
+												</div>
+											</div>
+										</div>
+										
+										<!-- Single price table -->
+										<div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="card pricing">
+												<div class="card-body">
+													<small class="text-muted">PLATINUM</small>
+													<h5 class="card-title">$<span>199</span></h5>
+													<p class="card-text"></p>
+													<ul class="list-unstyled">
+														<li>10 Projects</li>
+														<li>Team Collaboration</li>
+														<li>Analytics &amp; Reports</li>
+														<li>Fully Support</li>
+														<li>Multi user</li>
+													</ul>
+													<a href="choose-listing.html" class="btn btn-xl btn-outline-primary">Choose This Plan</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Monthly Price-->
+								
+								<!-- Yearly Price -->
+								<div class="tab-pane fade" id="yearly" role="tabpanel">
+									<div class="row">
+										<!-- Single price table -->
+										<div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="card pricing">
+												<div class="card-body">
+													<small class="text-muted">PERSONAL</small>
+													<h5 class="card-title">$<span>199</span></h5>
+													<p class="card-text"></p>
+													<ul class="list-unstyled">
+														<li>3 Projects</li>
+														<li class="plan-muted">Team Collaboration</li>
+														<li class="plan-muted">Analytics &amp; Reports</li>
+														<li class="plan-muted">Fully Support</li>
+														<li>One user</li>
+													</ul>
+													<a href="choose-listing.html" class="btn btn-xl btn-outline-primary">Choose This Plan</a>
+												</div>
+											</div>
+										</div>
+										
+										<!-- Single price table -->
+										<div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="card pricing featured">
+												<div class="card-body">
+													<small class="text-muted">STANDARD</small>
+													<h5 class="card-title">$<span>749</span></h5>
+													<p class="card-text"></p>
+													<ul class="list-unstyled">
+														<li>5 Projects</li>
+														<li>Team Collaboration</li>
+														<li class="plan-muted">Analytics &amp; Reports</li>
+														<li class="plan-muted">Fully Support</li>
+														<li>3 Users user</li>
+													</ul>
+													<a href="choose-listing.html" class="btn btn-xl btn-outline-primary">Choose This Plan</a>
+												</div>
+											</div>
+										</div>
+										
+										<!-- Single price table -->
+										<div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="card pricing">
+												<div class="card-body">
+													<small class="text-muted">PLATINUM</small>
+													<h5 class="card-title">$<span>1199</span></h5>
+													<p class="card-text"></p>
+													<ul class="list-unstyled">
+														<li>10 Projects</li>
+														<li>Team Collaboration</li>
+														<li>Analytics &amp; Reports</li>
+														<li>Fully Support</li>
+														<li>Multi user</li>
+													</ul>
+													<a href="choose-listing.html" class="btn btn-xl btn-outline-primary">Choose This Plan</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Yearly Price -->
+								
+							</div>
+							<!-- Tab panels -->
+						
+						</div>
+					</div>
+					
+				</div>
+			</section>
+			<!-- =========================== Pricing End ============================================ -->
+			
+			<!-- ============================ Sign up Start ================================== -->
+			<section class="cta center-bg" style="background:#ff7600 url(assets/img/tag-1.png)no-repeat">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-lg-8 col-md-10">
+							<div class="cta-sec text-center">
+								<h2>Sign up for 30 days trial!</h2>
+								<p>No payment required, jump to get started.</p>
+								<a href="index-2.html" class="btn btn-cta">Free Register!</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="clearfix"></div>
+			<!-- ============================ Sign up End ================================== -->
+			{% endblock %}
